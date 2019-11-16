@@ -10,7 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+       
+        VStack{
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+               
+            HStack {
+                ForEach (0..<6) { i in
+                    
+                    cardView(img:"img\(i)").padding(6)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -19,3 +31,20 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct cardView : View {
+
+    var  img = ""
+    var body: some View {
+        
+        VStack {
+            Image (img)
+            .renderingMode(.original)
+            .resizable()
+            
+        }.frame(width:250, height:400)
+        .cornerRadius(20)
+    }
+}
+    
+
